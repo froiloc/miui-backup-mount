@@ -68,17 +68,17 @@ NO_COLOR=1 ./miui-backup-mount.sh mount backup.bak
 DEBUG=1 ./miui-backup-mount.sh mount backup.bak
 ```
 # ❓ FAQ
-:**Q:** Why use this instead of just extracting the .bak file?
-:**A:** Saves storage space and allows direct access to large backups without duplication.
+**Q:** Why use this instead of just extracting the .bak file? \
+**A:** Saves storage space and allows direct access to large backups without duplication.
 
-:**Q:** The script says "Failed to create loop device" - what now?
-:**A:** Try:
+**Q:** The script says "Failed to create loop device" - what now? \
+**A:** Try:
 ```bash
 sudo modprobe loop  # Load kernel module
 losetup -f          # Check available loop devices
 ```
 
-# 🛡  Security
+# 🛡 Security
 Runs with minimal sudo privileges (only for losetup)
 
 Automatic cleanup on script exit
