@@ -44,6 +44,7 @@ cd miui-backup-utils
 | Core         | util-linux    | util-linux   | Required
 | FUSE         | fuse          | fuse2        | Required
 | archivemount | archivemount  | archivemount | Recommended
+
 Install with:
 
 ```bash
@@ -67,11 +68,11 @@ NO_COLOR=1 ./miui-backup-mount.sh mount backup.bak
 DEBUG=1 ./miui-backup-mount.sh mount backup.bak
 ```
 # ❓ FAQ
-**Q:** Why use this instead of just extracting the .bak file?
-**A:** Saves storage space and allows direct access to large backups without duplication.
+:**Q:** Why use this instead of just extracting the .bak file?
+:**A:** Saves storage space and allows direct access to large backups without duplication.
 
-**Q:** The script says "Failed to create loop device" - what now?
-**A:** Try:
+:**Q:** The script says "Failed to create loop device" - what now?
+:**A:** Try:
 ```bash
 sudo modprobe loop  # Load kernel module
 losetup -f          # Check available loop devices
@@ -85,13 +86,10 @@ Automatic cleanup on script exit
 Filesystem operations are read-only by default
 
 # 🤝 Contributing
-Pull requests welcome! Please:
-
-Follow existing code style
-
-Add tests for new features
-
-Update documentation
+- Pull requests welcome! Please:
+- Follow existing code style
+- Add tests for new features
+- Update documentation
 
 # 📜 License
 GPLv3 - See LICENSE for details.
