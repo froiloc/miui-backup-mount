@@ -19,12 +19,12 @@ Mount MIUI `.bak` backup files as virtual filesystems without extraction - perfe
 ## 🛠  Installation
 ### Direct Download 
 ```bash
-curl -LO https://raw.githubusercontent.com/<your-username>/miui-backup-utils/main/miui-backup-mount.sh
+curl -LO https://raw.githubusercontent.com/foiloc/miui-backup-utils/main/miui-backup-mount.sh
 chmod +x miui-backup-mount.sh
 ```
 ### Clone repository via Git
 ```bash
-git clone https://github.com/<your-username>/miui-backup-utils.git
+git clone https://github.com/foiloc/miui-backup-utils.git
 cd miui-backup-utils
 ```
 # 📖 Basic Usage
@@ -79,11 +79,11 @@ losetup -f          # Check available loop devices
 ```
 
 # 🛡 Security
-Runs with minimal sudo privileges (only for losetup)
+- Runs with minimal sudo privileges (only for losetup)
 
-Automatic cleanup on script exit
+- Automatic cleanup on script exit
 
-Filesystem operations are read-only by default
+- Filesystem operations are read-only by default
 
 # 🤝 Contributing
 - Pull requests welcome! Please:
@@ -95,8 +95,4 @@ Filesystem operations are read-only by default
 GPLv3 - See LICENSE for details.
 
 > 💡  **Pro Tip**: Combine with  ```rclone mount``` for network-accessible backups!
-
-
-### How This Renders on GitHub:
-![README Preview](https://user-images.githubusercontent.com/158189/199689681-5e8a3b1a-5d9a-4f1e-8f8d-3e5e5f3e3c7a.png)
 
