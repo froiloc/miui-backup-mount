@@ -2,6 +2,7 @@
 ![Bash Version](https://img.shields.io/badge/Bash-5.x%2B-blue)
 ![License](https://img.shields.io/badge/License-GPLv3-green)
 ![Platform](https://img.shields.io/badge/Platform-Linux-lightgrey)
+![Version](https://img.shields.io/github/v/release/froiloc/miui-backup-mount)
 
 Mount MIUI `.bak` backup files as virtual filesystems without extraction - perfect for inspecting or recovering data while saving storage space.
 
@@ -19,8 +20,8 @@ Mount MIUI `.bak` backup files as virtual filesystems without extraction - perfe
 ## 🛠  Installation
 ### Direct Download 
 ```bash
-curl -LO https://raw.githubusercontent.com/foiloc/miui-backup-utils/main/miui-backup-mount.sh
-chmod +x miui-backup-mount.sh
+sudo curl -LO https://raw.githubusercontent.com/foiloc/miui-backup-utils/main/miui-backup-mount.sh
+sudo chmod +x miui-backup-mount.sh
 ```
 ### Clone repository via Git
 ```bash
@@ -39,11 +40,11 @@ cd miui-backup-utils
 ./miui-backup-mount.sh version
 ```
 # 🔧 Dependencies
-|  Package     | Debian/Ubuntu | Arch Linux   | Notes
-|--------------|---------------|--------------|--------
-| Core         | util-linux    | util-linux   | Required
-| FUSE         | fuse          | fuse2        | Required
-| archivemount | archivemount  | archivemount | Recommended
+|  Package     | Debian/Ubuntu | Arch Linux   | Notes       | Purpose
+|--------------|---------------|--------------|-------------|-----------------------------
+| Core         | util-linux    | util-linux   | Required    | Provides losetup command
+| FUSE         | fuse          | fuse2        | Required    |
+| archivemount | archivemount  | archivemount | Recommended | For best mounting experience
 
 Install with:
 
@@ -77,6 +78,8 @@ DEBUG=1 ./miui-backup-mount.sh mount backup.bak
 sudo modprobe loop  # Load kernel module
 losetup -f          # Check available loop devices
 ```
+If issues persist,
+[open an issue](https://github.com/froiloc/miui-backup-mount/issues) with your `lsmod` output.
 
 # 🛡 Security
 - Runs with minimal sudo privileges (only for losetup)
@@ -84,6 +87,8 @@ losetup -f          # Check available loop devices
 - Automatic cleanup on script exit
 
 - Filesystem operations are read-only by default
+
+> 🔒 **Security Tip**: Always **unmount** after use to prevent accidental modifications.
 
 # 🤝 Contributing
 - Pull requests welcome! Please:
