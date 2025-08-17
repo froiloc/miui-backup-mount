@@ -8,7 +8,8 @@ VERSION="1.0"
 #
 # Author: Alexander Reintzsch, <firstname>.<lastname>(at)gmail.com
 # License: GPLv3
-# Dependencies: archivemount (optional), coreutils
+# Dependencies: coreutils, util-linux, grep-dependencies
+# Optional: archivemount
 #
 # Examples:
 #   ./miui-backup-mount.sh mount backup.bak
@@ -183,7 +184,7 @@ function mount_backup()
         echo "Created loop-device: $loopdev"
         if command -v archivemount >/dev/null
         then
-            if ! archivemount "$loopdev" "$MOUNTPOINT"
+            if ! archivemount -o readonly "$loopdev" "$MOUNTPOINT"
             then
                 err noexit "Failed to mount tar archive at $MOUNTPOINT."
                 if ! rmdir "$MOUNTPOINT"
@@ -244,15 +245,14 @@ function main()
 # Register the cleanup function to run on these signals
 trap cleanup TERM INT HUP
 
-# Requires fuse2fs or similar FUSE tools
-if [ $# -lt 2 ] && [ "$1" != "version" ]
+if [ $# -lt 2 ] && [ "${1:-""}" != "version" ]
 then
     usage
     exit 1
 fi
 
-ACTION=$1
-FILENAME=$2
+ACTION="${1:-""}"
+FILENAME="${2:-""}"
 MOUNTPOINT="${3:-"./${FILENAME%.*}.virtual.tar"}"
 
 # At script start
